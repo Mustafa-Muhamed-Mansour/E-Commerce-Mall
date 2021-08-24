@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,25 +16,36 @@ import android.view.ViewGroup;
 
 import com.e_commerce_mall.R;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment
+{
 
-    private MainViewModel mViewModel;
+    private NavController navController;
+    private MainViewModel mainViewModel;
 
-    public static MainFragment newInstance() {
-        return new MainFragment();
-    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+                             @Nullable Bundle savedInstanceState)
+    {
         return inflater.inflate(R.layout.main_fragment, container, false);
     }
 
+
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        // TODO: Use the ViewModel
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
+    {
+        super.onViewCreated(view, savedInstanceState);
+
+        navController = Navigation.findNavController(view);
+        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
     }
 
+    @Override
+    public void onDestroyView()
+    {
+        super.onDestroyView();
+
+
+    }
 }
