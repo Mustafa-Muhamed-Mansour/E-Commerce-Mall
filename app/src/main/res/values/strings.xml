@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">E-Commerce_Mall</string>
+    <string name="please_enter_your_email">Please enter your email</string>
+    <string name="please_enter_your_full_name">Please enter your full name</string>
+    <string name="please_enter_your_password">Please enter your password</string>
+    <string name="please_enter_your_confirm_password">Please enter your confirm password</string>
 </resources>

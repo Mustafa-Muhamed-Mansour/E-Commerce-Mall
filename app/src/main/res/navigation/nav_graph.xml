@@ -13,11 +13,42 @@
         <action
             android:id="@+id/action_signUpFragment_to_signInFragment"
             app:destination="@id/signInFragment"
+            app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.e_commerce_mall.user.SignInFragment"
         android:label="sign_in_fragment"
-        tools:layout="@layout/sign_in_fragment" />
+        tools:layout="@layout/sign_in_fragment" >
+        <action
+            android:id="@+id/action_signInFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signInFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_signUpSellerFragment"
+            app:destination="@id/signUpSellerFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.e_commerce_mall.ui.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" />
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.e_commerce_mall.admin.AdminFragment"
+        android:label="admin_fragment"
+        tools:layout="@layout/admin_fragment" />
+    <fragment
+        android:id="@+id/signUpSellerFragment"
+        android:name="com.e_commerce_mall.seller.SignUpSellerFragment"
+        android:label="sign_up_seller_fragment"
+        tools:layout="@layout/sign_up_seller_fragment" />
 </navigation>

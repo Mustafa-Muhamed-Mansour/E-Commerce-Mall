@@ -24,6 +24,7 @@
             >
 
         <EditText
+            android:id="@+id/edit_email_sign_up_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="E-Mail"
@@ -36,6 +37,7 @@
             />
 
         <EditText
+            android:id="@+id/edit_full_name_sign_up_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Full Name"
@@ -48,6 +50,7 @@
             />
 
         <EditText
+            android:id="@+id/edit_password_sign_up_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -60,6 +63,7 @@
             />
 
         <EditText
+            android:id="@+id/edit_confirm_password_sign_up_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
@@ -74,6 +78,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btn_sign_up_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign Up"
@@ -129,6 +134,7 @@
 
 
         <TextView
+            android:id="@+id/txt_sign_in_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Already have an account? Sign In"
