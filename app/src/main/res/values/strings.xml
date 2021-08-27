@@ -4,6 +4,9 @@
     <string name="please_enter_your_full_name">Please enter your full name</string>
     <string name="please_enter_your_password">Please enter your password</string>
     <string name="please_enter_your_confirm_password">Please enter your confirm password</string>
+    <string name="please_enter_your_name">Please enter your name</string>
+    <string name="please_enter_your_phone">Please enter your phone</string>
+    <string name="please_enter_your_shop_address">Please enter your Shop Address</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

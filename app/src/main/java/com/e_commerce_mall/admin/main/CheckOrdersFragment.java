@@ -1,4 +1,4 @@
-package com.e_commerce_mall.admin;
+package com.e_commerce_mall.admin.main;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -14,22 +14,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.e_commerce_mall.R;
-import com.e_commerce_mall.databinding.ProductsMaintenanceFragmentBinding;
+import com.e_commerce_mall.databinding.CheckOrdersFragmentBinding;
 
-public class ProductsMaintenanceFragment extends Fragment
+public class CheckOrdersFragment extends Fragment
 {
 
-    private ProductsMaintenanceFragmentBinding binding;
+    private CheckOrdersFragmentBinding binding;
     private NavController navController;
-    private ProductsMaintenanceViewModel productsMaintenanceViewModel;
+    private CheckOrdersViewModel checkOrdersViewModel;
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState)
     {
-        binding = ProductsMaintenanceFragmentBinding.inflate(inflater, container, false);
+        binding = CheckOrdersFragmentBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         return view;
     }
@@ -39,8 +38,8 @@ public class ProductsMaintenanceFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
 
-        navController = Navigation.findNavController(view);
-        productsMaintenanceViewModel = new ViewModelProvider(getActivity()).get(ProductsMaintenanceViewModel.class);
+        navController =Navigation.findNavController(view);
+        checkOrdersViewModel = new ViewModelProvider(getActivity()).get(CheckOrdersViewModel.class);
 
 
     }
