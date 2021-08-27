@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".admin.AdminCategoryFragment"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome Dear Admin"
+                android:textSize="30sp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                />
+
+            <Button
+                android:id="@+id/btn_products_maintain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Products Maintenance"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textAllCaps="false"
+                android:layout_margin="5dp"
+                />
+
+            <Button
+                android:id="@+id/btn_check_new_orders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Check New Orders"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textAllCaps="false"
+                android:layout_margin="5dp"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                >
+
+                <Button
+                    android:id="@+id/btn_log_out"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Logut"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:layout_margin="5dp"
+                    android:layout_alignParentBottom="true"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

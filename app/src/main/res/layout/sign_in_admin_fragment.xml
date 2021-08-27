@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".admin.signin.SignInAdminFragment"
+        android:orientation="vertical"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <ImageButton
+            android:id="@+id/im_btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:src="@drawable/ic_back"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edit_email_sign_in_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="E-Mail"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            android:textAllCaps="false"
+            android:layout_margin="5dp"
+            android:inputType="textEmailAddress"
+            />
+
+        <EditText
+            android:id="@+id/edit_password_sign_in_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:layout_margin="5dp"
+            android:inputType="textPassword"
+            />
+
+        <TextView
+            android:id="@+id/txt_sign_up_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up Admin"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:layout_gravity="end"
+            />
+
+    </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_sign_in_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign In Admin"
+            android:textSize="23sp"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:background="@color/white"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            />
+   </LinearLayout>
+
+</layout>

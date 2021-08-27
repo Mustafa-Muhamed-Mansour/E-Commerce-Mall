@@ -15,18 +15,23 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.e_commerce_mall.R;
+import com.e_commerce_mall.databinding.ProductsMaintenanceFragmentBinding;
 
-public class AdminFragment extends Fragment
+public class ProductsMaintenanceFragment extends Fragment
 {
 
+    private ProductsMaintenanceFragmentBinding binding;
     private NavController navController;
-    private AdminViewModel adminViewModel;
+    private ProductsMaintenanceViewModel productsMaintenanceViewModel;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState)
     {
-        return inflater.inflate(R.layout.admin_fragment, container, false);
+        binding = ProductsMaintenanceFragmentBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
+        return view;
     }
 
     @Override
@@ -35,7 +40,15 @@ public class AdminFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        adminViewModel = new ViewModelProvider(this).get(AdminViewModel.class);
+        productsMaintenanceViewModel = new ViewModelProvider(getActivity()).get(ProductsMaintenanceViewModel.class);
+
+
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
 
 
     }

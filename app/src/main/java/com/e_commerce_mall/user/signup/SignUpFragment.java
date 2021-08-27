@@ -1,4 +1,4 @@
-package com.e_commerce_mall.user;
+package com.e_commerce_mall.user.signup;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -119,14 +119,14 @@ public class SignUpFragment extends Fragment
             {
                 if (s.equals("Sucess User"))
                 {
+                    progressDialog.cancel();
                     Toast.makeText(getContext(), "Sucessfully in signUp", Toast.LENGTH_SHORT).show();
                     navController.navigate(R.id.action_signUpFragment_to_signInFragment);
-                    progressDialog.cancel();
                 }
                 else
                 {
-                    Toast.makeText(getContext(), "Failure in signUp", Toast.LENGTH_SHORT).show();
                     progressDialog.cancel();
+                    Toast.makeText(getContext(), "Failure in signUp", Toast.LENGTH_SHORT).show();
                 }
             }
         });
