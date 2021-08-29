@@ -34,7 +34,7 @@ public class SignUpSellerViewModel extends ViewModel
                             String sellerID = firebaseAuth.getCurrentUser().getUid();
                             stringMutableLiveData.setValue("Sucess Seller");
                             SellerModel userModel = new SellerModel(sellerID, name, phone, email, shopAddress);
-                            sellerRef.child("Users' accounts").child(sellerID).setValue(userModel);
+                            sellerRef.child("Sellers' accounts").child(sellerID).setValue(userModel);
                         }
                         else
                         {
