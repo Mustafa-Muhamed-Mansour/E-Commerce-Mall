@@ -55,6 +55,12 @@ public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapte
             public void onClick(View view)
             {
                 Bundle editProduct = new Bundle();
+                editProduct.putString("productID", model.getProductID());
+                editProduct.putString("randomKey", model.getRandomKey());
+                editProduct.putString("productImage", model.getProductImage());
+                editProduct.putString("productName", model.getProductName());
+                editProduct.putString("productDescription", model.getProductDescription());
+                editProduct.putString("productPrice", model.getProductPrice());
                 Navigation.findNavController(view).navigate(R.id.action_productsMaintenanceFragment_to_productEditFragment, editProduct);
             }
         });

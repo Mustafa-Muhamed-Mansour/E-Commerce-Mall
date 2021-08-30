@@ -16,6 +16,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class SellerProductAdapter extends RecyclerView.Adapter<SellerProductAdapter.SellerProductViewHolder>
 {
 
@@ -54,7 +56,7 @@ public class SellerProductAdapter extends RecyclerView.Adapter<SellerProductAdap
             @Override
             public void onClick(View view)
             {
-                Toast.makeText(holder.itemView.getContext(), "ID = " + model.getProductID(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(holder.itemView.getContext(), "ID = " + model.getRandomKey(), Toast.LENGTH_SHORT).show();
             }
         });
     }

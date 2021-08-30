@@ -90,7 +90,7 @@ public class SellerMainFragment extends Fragment
         productModels = new ArrayList<>();
         sellerProductAdapter = new SellerProductAdapter(productModels);
         binding.rVSeller.setAdapter(sellerProductAdapter);
-        retriveRef.child("Products").addValueEventListener(new ValueEventListener()
+        retriveRef.child("Products").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener()
         {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot)

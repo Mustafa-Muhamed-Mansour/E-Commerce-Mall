@@ -3,6 +3,7 @@ package com.e_commerce_mall.model;
 public class ProductModel
 {
 
+    private String randomKey;
     private String productID;
     private String productImage;
     private String productName;
@@ -13,22 +14,20 @@ public class ProductModel
     {
     }
 
-    public ProductModel(String productID, String productName, String productDescription, String productPrice)
+
+    public ProductModel(String randomKey, String productID, String productImage, String productName, String productDescription, String productPrice)
     {
+        this.randomKey = randomKey;
         this.productID = productID;
+        this.productImage = productImage;
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
     }
 
-//    public ProductModel(String productID, String productImage, String productName, String productDescription, String productPrice)
-//    {
-//        this.productID = productID;
-//        this.productImage = productImage;
-//        this.productName = productName;
-//        this.productDescription = productDescription;
-//        this.productPrice = productPrice;
-//    }
+    public String getRandomKey() {
+        return randomKey;
+    }
 
     public String getProductID() {
         return productID;

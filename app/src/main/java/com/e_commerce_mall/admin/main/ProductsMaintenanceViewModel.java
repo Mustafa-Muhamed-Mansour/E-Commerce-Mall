@@ -16,16 +16,18 @@ import java.util.ArrayList;
 
 public class ProductsMaintenanceViewModel extends ViewModel
 {
+
     private ArrayList<ProductModel> productModels = new ArrayList<>();
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private DatabaseReference adminRef = FirebaseDatabase.getInstance().getReference();
     public MutableLiveData<ArrayList<ProductModel>> productModelMutableLiveData  = new MutableLiveData<ArrayList<ProductModel>>();
     public MutableLiveData<String> stringMutableLiveData = new MutableLiveData<>();
 
+
     public void retriveProduct()
     {
         adminRef
-                .child("Products")
+                .child("Product Admin")
                 .addValueEventListener(new ValueEventListener()
                 {
                     @Override
