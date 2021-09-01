@@ -20,8 +20,8 @@ public class ProductsMaintenanceViewModel extends ViewModel
     private ArrayList<ProductModel> productModels = new ArrayList<>();
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private DatabaseReference adminRef = FirebaseDatabase.getInstance().getReference();
+    private MutableLiveData<String> stringMutableLiveData = new MutableLiveData<>();
     public MutableLiveData<ArrayList<ProductModel>> productModelMutableLiveData  = new MutableLiveData<ArrayList<ProductModel>>();
-    public MutableLiveData<String> stringMutableLiveData = new MutableLiveData<>();
 
 
     public void retriveProduct()

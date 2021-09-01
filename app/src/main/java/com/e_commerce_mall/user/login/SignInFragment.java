@@ -1,13 +1,13 @@
-package com.e_commerce_mall.user.signin;
+package com.e_commerce_mall.user.login;
 
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -27,7 +27,6 @@ public class SignInFragment extends Fragment
     private NavController navController;
     private SignInViewModel signInViewModel;
 
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState)
@@ -43,7 +42,7 @@ public class SignInFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        signInViewModel = new ViewModelProvider(this).get(SignInViewModel.class);
+        signInViewModel = new ViewModelProvider(requireActivity()).get(SignInViewModel.class);
 
         binding.btnSignInUser.setOnClickListener(new View.OnClickListener()
         {

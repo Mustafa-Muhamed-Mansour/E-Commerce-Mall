@@ -45,12 +45,8 @@ public class AddNewProductFragment extends Fragment
     private AddNewProductFragmentBinding binding;
     private NavController navController;
     private AddNewProductViewModel addNewProductViewModel;
-    private FirebaseAuth firebaseAuth;
-    private DatabaseReference productRef;
-    private StorageReference productImageRef;
-    static final int GALLERY_PICK = 1;
-    private Uri photoProductPathUri;
     private String productImage;
+    private Uri resultUri;
 
 
     @Override
@@ -69,10 +65,6 @@ public class AddNewProductFragment extends Fragment
 
         navController = Navigation.findNavController(view);
         addNewProductViewModel = new ViewModelProvider(getActivity()).get(AddNewProductViewModel.class);
-
-        firebaseAuth = FirebaseAuth.getInstance();
-        productRef = FirebaseDatabase.getInstance().getReference();
-        productImageRef = FirebaseStorage.getInstance().getReference();
 
         binding.btnAddNewProduct.setOnClickListener(new View.OnClickListener()
         {
@@ -117,16 +109,16 @@ public class AddNewProductFragment extends Fragment
             @Override
             public void onClick(View view)
             {
-                checkRequestPermission();
+                openGallery();
             }
         });
 
-        addNewProductViewModel.stringMutableLiveData.observe(getViewLifecycleOwner(), new Observer<String>()
+        addNewProductViewModel.booleanMutableLiveData.observe(getViewLifecycleOwner(), new Observer<Boolean>()
         {
             @Override
-            public void onChanged(String s)
+            public void onChanged(Boolean aBoolean)
             {
-                if (s.equals("Done Add Product"))
+                if (aBoolean)
                 {
                     Toast.makeText(getContext(), "Sucessfully in Added Product", Toast.LENGTH_SHORT).show();
                     navController.navigate(R.id.action_addNewProductFragment_to_sellerMainFragment);
@@ -139,17 +131,6 @@ public class AddNewProductFragment extends Fragment
         });
     }
 
-    private void checkRequestPermission()
-    {
-        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, GALLERY_PICK);
-        }
-        else
-        {
-            openGallery();
-        }
-    }
 
     private void openGallery()
     {
@@ -157,80 +138,37 @@ public class AddNewProductFragment extends Fragment
                 .activity()
                 .setGuidelines(CropImageView.Guidelines.ON_TOUCH)
                 .start(getActivity(), this);
-
-        Picasso.get()
-                .load(photoProductPathUri)
-                .into(binding.productImg);
     }
 
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
-//    {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (resultCode == RESULT_OK && data != null && requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE)
-//        {
-//            CropImage.ActivityResult activityResult = CropImage.getActivityResult(data);
-//            photoProductPathUri = activityResult.getUri();
-//            final StorageReference filePath = productImageRef.child("Images Products").child(photoProductPathUri.getLastPathSegment() /*+ ".jpg" */);
-//            final UploadTask uploadTask = filePath.putFile(photoProductPathUri);
-//            uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>()
-//            {
-//                @Override
-//                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception
-//                {
-//                    if(!task.isSuccessful())
-//                    {
-//                        throw task.getException();
-//                    }
-//                    return filePath.getDownloadUrl();
-//                }
-//            }).addOnCompleteListener(new OnCompleteListener<Uri>()
-//            {
-//                @Override
-//                public void onComplete(@NonNull Task<Uri> task)
-//                {
-//                    if (task.isSuccessful())
-//                    {
-//
-//                        Uri downloadUri = task.getResult();
-//
-//                        productImage = downloadUri.toString();
-//
-//                        productRef
-//                                .child("Products")
-//                                .child(firebaseAuth.getCurrentUser().getUid())
-//                                .child("productImage")
-//                                .setValue(productImage)
-//                                .addOnCompleteListener(new OnCompleteListener<Void>()
-//                                {
-//                                    @Override
-//                                    public void onComplete(@NonNull Task<Void> task)
-//                                    {
-//                                        if (task.isSuccessful())
-//                                        {
-//                                            Toast.makeText(getContext(), "Image Save In Database, Done", Toast.LENGTH_SHORT).show();
-//                                        }
-//                                        else
-//                                        {
-//                                            Toast.makeText(getContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-//                                        }
-//                                    }
-//                                });
-//                    }
-//                }
-//            });
-//
-//
-//        }
-//    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE)
+        {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK)
+            {
+                resultUri = result.getUri();
+                productImage = resultUri.toString();
+            }
+            else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE)
+            {
+                Exception error = result.getError();
+            }
+        }
 
+        Picasso
+                .get()
+                .load(resultUri)
+                .into(binding.productImg);
+
+    }
 
     @Override
     public void onDestroyView()
     {
         super.onDestroyView();
 
-        addNewProductViewModel.stringMutableLiveData.removeObservers(getViewLifecycleOwner());
+        addNewProductViewModel.booleanMutableLiveData.removeObservers(getViewLifecycleOwner());
     }
 }

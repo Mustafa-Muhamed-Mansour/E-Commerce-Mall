@@ -1,5 +1,6 @@
 package com.e_commerce_mall.adapter.seller;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,6 @@ import com.e_commerce_mall.model.ProductModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SellerProductAdapter extends RecyclerView.Adapter<SellerProductAdapter.SellerProductViewHolder>
 {
@@ -44,12 +43,19 @@ public class SellerProductAdapter extends RecyclerView.Adapter<SellerProductAdap
         holder.textSellerProductName.setText(model.getProductName());
         holder.textSellerProductDescription.setText(model.getProductDescription());
         holder.textSellerProductPrice.setText(model.getProductPrice() + " £");
-        Picasso
-                .get()
-                .load(model.getProductImage())
-                .placeholder(R.drawable.ic_add_new_product)
-                .error(R.drawable.ic_add_new_product)
-                .into(holder.sellerProductImage);
+
+        if (model.getProductImage() != null)
+        {
+            if (!TextUtils.isEmpty(model.getProductImage()))
+            {
+                Picasso
+                        .get()
+                        .load(model.getProductImage())
+                        .placeholder(R.drawable.ic_add_new_product)
+                        .error(R.drawable.ic_add_new_product)
+                        .into(holder.sellerProductImage);
+            }
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener()
         {

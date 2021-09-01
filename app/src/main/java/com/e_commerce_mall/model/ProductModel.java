@@ -2,7 +2,6 @@ package com.e_commerce_mall.model;
 
 public class ProductModel
 {
-
     private String randomKey;
     private String productID;
     private String productImage;
@@ -13,7 +12,6 @@ public class ProductModel
     public ProductModel()
     {
     }
-
 
     public ProductModel(String randomKey, String productID, String productImage, String productName, String productDescription, String productPrice)
     {

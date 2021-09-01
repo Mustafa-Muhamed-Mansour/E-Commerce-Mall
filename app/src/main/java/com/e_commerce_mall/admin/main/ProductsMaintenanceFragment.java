@@ -3,6 +3,7 @@ package com.e_commerce_mall.admin.main;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -48,17 +49,18 @@ public class ProductsMaintenanceFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        productsMaintenanceViewModel = new ViewModelProvider(getActivity()).get(ProductsMaintenanceViewModel.class);
+        productsMaintenanceViewModel = new ViewModelProvider(requireActivity()).get(ProductsMaintenanceViewModel.class);
 
-        productsMaintenanceViewModel.productModelMutableLiveData.observe(getActivity(), new Observer<ArrayList<ProductModel>>()
+        productsMaintenanceViewModel.productModelMutableLiveData.observe(requireActivity(), new Observer<ArrayList<ProductModel>>()
         {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onChanged(ArrayList<ProductModel> productModels)
             {
                 adminProductAdapter = new AdminProductAdapter(productModels);
                 binding.rVProductsMaintenance.setAdapter(adminProductAdapter);
-                binding.rVProductsMaintenance.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                binding.rVProductsMaintenance.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+                binding.rVProductsMaintenance.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));
+                binding.rVProductsMaintenance.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
                 adminProductAdapter.notifyDataSetChanged();
             }
         });

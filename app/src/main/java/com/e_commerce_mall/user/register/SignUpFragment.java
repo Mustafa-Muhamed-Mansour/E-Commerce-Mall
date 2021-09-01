@@ -1,4 +1,4 @@
-package com.e_commerce_mall.user.signup;
+package com.e_commerce_mall.user.register;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -47,7 +47,7 @@ public class SignUpFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        signUpViewModel = new ViewModelProvider(this).get(SignUpViewModel.class);
+        signUpViewModel = new ViewModelProvider(requireActivity()).get(SignUpViewModel.class);
 
         progressDialog=new ProgressDialog(getActivity());
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.e_commerce_mall.user.signup.SignUpFragment"
+        android:name="com.e_commerce_mall.user.register.SignUpFragment"
         android:label="sign_up_fragment"
         tools:layout="@layout/sign_up_fragment" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.e_commerce_mall.user.signin.SignInFragment"
+        android:name="com.e_commerce_mall.user.login.SignInFragment"
         android:label="sign_in_fragment"
         tools:layout="@layout/sign_in_fragment" >
         <action
@@ -45,7 +45,7 @@
         tools:layout="@layout/main_fragment" />
     <fragment
         android:id="@+id/signUpSellerFragment"
-        android:name="com.e_commerce_mall.seller.signup.SignUpSellerFragment"
+        android:name="com.e_commerce_mall.seller.register.SignUpSellerFragment"
         android:label="sign_up_seller_fragment"
         tools:layout="@layout/sign_up_seller_fragment" >
         <action
@@ -81,7 +81,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpAdminFragment"
-        android:name="com.e_commerce_mall.admin.signup.SignUpAdminFragment"
+        android:name="com.e_commerce_mall.admin.register.SignUpAdminFragment"
         android:label="sign_up_admin_fragment"
         tools:layout="@layout/sign_up_admin_fragment" >
         <action
@@ -96,7 +96,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInAdminFragment"
-        android:name="com.e_commerce_mall.admin.signin.SignInAdminFragment"
+        android:name="com.e_commerce_mall.admin.login.SignInAdminFragment"
         android:label="SignInAdminFragment"
         tools:layout="@layout/sign_in_admin_fragment"
         >
@@ -131,7 +131,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInSellerFragment"
-        android:name="com.e_commerce_mall.seller.signin.SignInSellerFragment"
+        android:name="com.e_commerce_mall.seller.login.SignInSellerFragment"
         android:label="sign_in_seller_fragment"
         tools:layout="@layout/sign_in_seller_fragment" >
         <action

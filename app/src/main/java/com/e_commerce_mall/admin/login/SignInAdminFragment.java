@@ -1,4 +1,4 @@
-package com.e_commerce_mall.admin.signin;
+package com.e_commerce_mall.admin.login;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
