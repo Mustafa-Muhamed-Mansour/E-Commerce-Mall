@@ -1,4 +1,4 @@
-package com.e_commerce_mall.user.register;
+package com.e_commerce_mall.user.signup;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -22,12 +22,12 @@ import com.e_commerce_mall.R;
 import com.e_commerce_mall.databinding.SignUpFragmentBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SignUpFragment extends Fragment
+public class SignUpUserFragment extends Fragment
 {
 
     private SignUpFragmentBinding binding;
     private NavController navController;
-    private SignUpViewModel signUpViewModel;
+    private SignUpUserViewModel signUpUserViewModel;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
 
@@ -47,7 +47,7 @@ public class SignUpFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        signUpViewModel = new ViewModelProvider(requireActivity()).get(SignUpViewModel.class);
+        signUpUserViewModel = new ViewModelProvider(requireActivity()).get(SignUpUserViewModel.class);
 
         progressDialog=new ProgressDialog(getActivity());
 
@@ -98,7 +98,7 @@ public class SignUpFragment extends Fragment
                     progressDialog.setCanceledOnTouchOutside(false);
                     progressDialog.show();
 
-                    signUpViewModel.signUp(email, fullName, password);
+                    signUpUserViewModel.signUp(email, fullName, password);
                 }
             }
         });
@@ -112,7 +112,7 @@ public class SignUpFragment extends Fragment
             }
         });
 
-        signUpViewModel.stringMutableLiveData.observe(getViewLifecycleOwner(), new Observer<String>()
+        signUpUserViewModel.stringMutableLiveData.observe(getViewLifecycleOwner(), new Observer<String>()
         {
             @Override
             public void onChanged(String s)
@@ -137,6 +137,6 @@ public class SignUpFragment extends Fragment
     {
         super.onDestroyView();
 
-        signUpViewModel.stringMutableLiveData.removeObservers(getViewLifecycleOwner());
+        signUpUserViewModel.stringMutableLiveData.removeObservers(getViewLifecycleOwner());
     }
 }

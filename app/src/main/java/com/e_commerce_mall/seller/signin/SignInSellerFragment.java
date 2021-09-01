@@ -1,4 +1,4 @@
-package com.e_commerce_mall.seller.login;
+package com.e_commerce_mall.seller.signin;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -42,7 +42,7 @@ public class SignInSellerFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        signInSellerViewModel = new ViewModelProvider(this).get(SignInSellerViewModel.class);
+        signInSellerViewModel = new ViewModelProvider(requireActivity()).get(SignInSellerViewModel.class);
 
         binding.textSignUpSeller.setOnClickListener(new View.OnClickListener()
         {

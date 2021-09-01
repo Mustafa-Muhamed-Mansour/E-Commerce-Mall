@@ -1,10 +1,13 @@
 package com.e_commerce_mall.seller.main;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -35,10 +38,9 @@ public class SellerMainFragment extends Fragment
 
     private SellerMainFragmentBinding binding;
     private NavController navController;
-    private ArrayList<ProductModel> productModels;
+    private SellerMainFragmentViewModel sellerMainFragmentViewModel;
     private SellerProductAdapter sellerProductAdapter;
-    private FirebaseAuth firebaseAuth;
-    private DatabaseReference retriveRef;
+
 
 
     @Override
@@ -56,9 +58,7 @@ public class SellerMainFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-
-        firebaseAuth = FirebaseAuth.getInstance();
-        retriveRef = FirebaseDatabase.getInstance().getReference();
+        sellerMainFragmentViewModel = new ViewModelProvider(requireActivity()).get(SellerMainFragmentViewModel.class);
 
         binding.bottomNavView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener()
         {
@@ -74,6 +74,8 @@ public class SellerMainFragment extends Fragment
                         navController.navigate(R.id.action_sellerMainFragment_to_addNewProductFragment);
                         break;
                     case R.id.nav_loout:
+
+                        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
                         firebaseAuth.signOut();
                         navController.navigate(R.id.action_sellerMainFragment_to_signInSellerFragment);
                         break;
@@ -85,30 +87,34 @@ public class SellerMainFragment extends Fragment
             }
         });
 
-        binding.rVSeller.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        binding.rVSeller.addItemDecoration(new DividerItemDecoration(getContext(), RecyclerView.VERTICAL));
-        productModels = new ArrayList<>();
-        sellerProductAdapter = new SellerProductAdapter(productModels);
-        binding.rVSeller.setAdapter(sellerProductAdapter);
-        retriveRef.child("Products").child(firebaseAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener()
+        sellerMainFragmentViewModel.productModelMutableLiveData.observe(getViewLifecycleOwner(), new Observer<ArrayList<ProductModel>>()
         {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot)
+            public void onChanged(ArrayList<ProductModel> productModels)
             {
-                productModels.clear();
-                for(DataSnapshot dataSnapshot : snapshot.getChildren())
-                {
-                    ProductModel productModel = dataSnapshot.getValue(ProductModel.class);
-                    productModels.add(productModel);
-                }
+                sellerProductAdapter = new SellerProductAdapter(productModels);
+                binding.rVSeller.setAdapter(sellerProductAdapter);
+                binding.rVSeller.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+                binding.rVSeller.addItemDecoration(new DividerItemDecoration(getContext(), RecyclerView.VERTICAL));
                 sellerProductAdapter.notifyDataSetChanged();
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error)
-            {
-                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
         });
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+
+        sellerMainFragmentViewModel.retriveProduct();
+    }
+
+    @Override
+    public void onDestroyView()
+    {
+        super.onDestroyView();
+
+        sellerMainFragmentViewModel.productModelMutableLiveData.removeObservers(getViewLifecycleOwner());
     }
 }

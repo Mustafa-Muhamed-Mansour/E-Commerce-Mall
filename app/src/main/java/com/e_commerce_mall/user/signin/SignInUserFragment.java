@@ -1,4 +1,4 @@
-package com.e_commerce_mall.user.login;
+package com.e_commerce_mall.user.signin;
 
 
 import android.os.Bundle;
@@ -20,12 +20,12 @@ import android.widget.Toast;
 import com.e_commerce_mall.R;
 import com.e_commerce_mall.databinding.SignInFragmentBinding;
 
-public class SignInFragment extends Fragment
+public class SignInUserFragment extends Fragment
 {
 
     private SignInFragmentBinding binding;
     private NavController navController;
-    private SignInViewModel signInViewModel;
+    private SignInUserViewModel signInUserViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -42,7 +42,7 @@ public class SignInFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        signInViewModel = new ViewModelProvider(requireActivity()).get(SignInViewModel.class);
+        signInUserViewModel = new ViewModelProvider(requireActivity()).get(SignInUserViewModel.class);
 
         binding.btnSignInUser.setOnClickListener(new View.OnClickListener()
         {
@@ -68,7 +68,7 @@ public class SignInFragment extends Fragment
 
                 else
                 {
-                    signInViewModel.signIn(email, password);
+                    signInUserViewModel.signIn(email, password);
                 }
             }
         });
@@ -100,7 +100,7 @@ public class SignInFragment extends Fragment
             }
         });
 
-        signInViewModel.stringMutableLiveData.observe(getViewLifecycleOwner(), new Observer<String>()
+        signInUserViewModel.stringMutableLiveData.observe(getViewLifecycleOwner(), new Observer<String>()
         {
             @Override
             public void onChanged(String s)
@@ -123,6 +123,6 @@ public class SignInFragment extends Fragment
     {
         super.onDestroyView();
 
-        signInViewModel.stringMutableLiveData.removeObservers(getViewLifecycleOwner());
+        signInUserViewModel.stringMutableLiveData.removeObservers(getViewLifecycleOwner());
     }
 }

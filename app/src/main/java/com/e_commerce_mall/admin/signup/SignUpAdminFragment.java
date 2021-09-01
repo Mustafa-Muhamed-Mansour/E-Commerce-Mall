@@ -1,4 +1,4 @@
-package com.e_commerce_mall.admin.register;
+package com.e_commerce_mall.admin.signup;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -43,7 +43,7 @@ public class SignUpAdminFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         navController =Navigation.findNavController(view);
-        signUpAdminViewModel = new ViewModelProvider(getActivity()).get(SignUpAdminViewModel.class);
+        signUpAdminViewModel = new ViewModelProvider(requireActivity()).get(SignUpAdminViewModel.class);
 
         binding.btnSignUpAdmin.setOnClickListener(new View.OnClickListener()
         {

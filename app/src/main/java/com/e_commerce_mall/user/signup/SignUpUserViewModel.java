@@ -1,10 +1,10 @@
-package com.e_commerce_mall.admin.register;
+package com.e_commerce_mall.user.signup;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.e_commerce_mall.model.AdminModel;
+import com.e_commerce_mall.model.UserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -12,14 +12,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignUpAdminViewModel extends ViewModel
+public class SignUpUserViewModel extends ViewModel
 {
 
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    private DatabaseReference adminRef =FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference userRef = FirebaseDatabase.getInstance().getReference();
     public MutableLiveData<String> stringMutableLiveData = new MutableLiveData<>();
 
-    public void signUp(String email, String password)
+    public void signUp(String email, String fullName, String password)
     {
         firebaseAuth
                 .createUserWithEmailAndPassword(email, password)
@@ -30,14 +30,14 @@ public class SignUpAdminViewModel extends ViewModel
                     {
                         if (task.isSuccessful())
                         {
-                            String adminID = firebaseAuth.getCurrentUser().getUid();
-                            stringMutableLiveData.setValue("Sucess Admin");
-                            AdminModel adminModel = new AdminModel(adminID, email);
-                            adminRef.child("Admins' accounts").child(adminID).setValue(adminModel);
+                            String userID = firebaseAuth.getCurrentUser().getUid();
+                            stringMutableLiveData.setValue("Sucess User");
+                            UserModel userModel = new UserModel(userID, email, fullName);
+                            userRef.child("Users' accounts").child(userID).setValue(userModel);
                         }
                         else
                         {
-                            stringMutableLiveData.setValue("Failure Admin");
+                            stringMutableLiveData.setValue("Failure User");
                         }
                     }
                 });

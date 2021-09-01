@@ -64,7 +64,7 @@ public class AddNewProductFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        addNewProductViewModel = new ViewModelProvider(getActivity()).get(AddNewProductViewModel.class);
+        addNewProductViewModel = new ViewModelProvider(requireActivity()).get(AddNewProductViewModel.class);
 
         binding.btnAddNewProduct.setOnClickListener(new View.OnClickListener()
         {
@@ -143,18 +143,16 @@ public class AddNewProductFragment extends Fragment
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE)
+        CropImage.ActivityResult result = CropImage.getActivityResult(data);
+
+        if (resultCode == RESULT_OK && requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && data != null)
         {
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (resultCode == RESULT_OK)
-            {
-                resultUri = result.getUri();
-                productImage = resultUri.toString();
-            }
-            else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE)
-            {
-                Exception error = result.getError();
-            }
+            resultUri = result.getUri();
+            productImage = resultUri.toString();
+        }
+        else
+        {
+            Toast.makeText(getActivity(), result.getError().getMessage(), Toast.LENGTH_SHORT).show();
         }
 
         Picasso

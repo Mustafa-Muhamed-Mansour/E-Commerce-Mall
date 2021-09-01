@@ -1,4 +1,4 @@
-package com.e_commerce_mall.user.login;
+package com.e_commerce_mall.user.signin;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
@@ -9,7 +9,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class SignInViewModel extends ViewModel
+public class SignInUserViewModel extends ViewModel
 {
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     public MutableLiveData<String> stringMutableLiveData = new MutableLiveData<>();

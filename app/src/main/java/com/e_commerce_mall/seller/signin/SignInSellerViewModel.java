@@ -1,4 +1,4 @@
-package com.e_commerce_mall.seller.login;
+package com.e_commerce_mall.seller.signin;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;

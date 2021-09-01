@@ -1,4 +1,4 @@
-package com.e_commerce_mall.seller.register;
+package com.e_commerce_mall.seller.signup;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -44,7 +44,7 @@ public class SignUpSellerFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        signUpSellerViewModel = new ViewModelProvider(this).get(SignUpSellerViewModel.class);
+        signUpSellerViewModel = new ViewModelProvider(requireActivity()).get(SignUpSellerViewModel.class);
 
         binding.imBtnBackSeller.setOnClickListener(new View.OnClickListener()
         {
