@@ -22,6 +22,7 @@
         <entry key="app/src/main/res/layout/item_product.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/item_product_admin.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/item_product_cart.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/item_product_search.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/item_product_seller.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/item_product_user.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/item_seller.xml" value="0.3509963768115942" />
@@ -32,6 +33,7 @@
         <entry key="app/src/main/res/layout/product_edit_fragment.xml" value="0.22" />
         <entry key="app/src/main/res/layout/product_item.xml" value="0.20018115942028986" />
         <entry key="app/src/main/res/layout/products_maintenance_fragment.xml" value="0.3509963768115942" />
+        <entry key="app/src/main/res/layout/search_user_fragment.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/seller_main_fragment.xml" value="0.3509963768115942" />
         <entry key="app/src/main/res/layout/sign_in_fragment.xml" value="0.3555253623188406" />
         <entry key="app/src/main/res/layout/sign_in_seller_fragment.xml" value="0.3509963768115942" />
@@ -41,6 +43,7 @@
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/menu/main_drawer.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/menu/popup_menu.xml" value="0.5" />
+        <entry key="app/src/main/res/menu/search_menu.xml" value="0.35572916666666665" />
       </map>
     </option>
   </component>
