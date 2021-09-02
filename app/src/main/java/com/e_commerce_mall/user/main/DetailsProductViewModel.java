@@ -22,7 +22,9 @@ public class DetailsProductViewModel extends ViewModel
     {
         String cartID = firebaseAuth.getCurrentUser().getUid();
         CartModel cartModel = new CartModel(randomKey, cartID, cartImage, cartName, cartDescription, cartPrice, cartQuantity);
-        addCartRef.child("Cart").child(randomKey).setValue(cartModel);
+//        addCartRef.child("Cart").child(cartID).child(randomKey).setValue(cartModel);
+//        addCartRef.child("Cart Admin").child(randomKey).setValue(cartModel);
+        addCartRef.child("Users' accounts").child(firebaseAuth.getCurrentUser().getUid()).child("Cart").child(randomKey).setValue(cartModel);
 
         booleanMutableLiveData.setValue(true);
     }

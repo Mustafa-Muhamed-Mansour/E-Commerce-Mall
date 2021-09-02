@@ -11,6 +11,12 @@ public class CartModel
     private String cartProductPrice;
     private String cartProductQuantity;
 
+
+    public CartModel()
+    {
+    }
+
+
     public CartModel(String randomKey, String cartID, String cartProductImage, String cartProductName, String cartProductDescription, String cartProductPrice, String cartProductQuantity)
     {
         this.randomKey = randomKey;

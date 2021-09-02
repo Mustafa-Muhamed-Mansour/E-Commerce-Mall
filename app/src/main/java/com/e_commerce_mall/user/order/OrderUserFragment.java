@@ -51,6 +51,8 @@ public class OrderUserFragment extends Fragment
         navController = Navigation.findNavController(view);
         orderUserViewModel = new ViewModelProvider(requireActivity()).get(OrderUserViewModel.class);
 
+        binding.txtPaiedOrderUser.setText(getArguments().getString("total_price"));
+
         binding.btnOrderUser.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -63,21 +65,21 @@ public class OrderUserFragment extends Fragment
 
                 if (TextUtils.isEmpty(name))
                 {
-                    binding.editFullNameOrderUser.setText(getString(R.string.please_enter_your_full_name));
+                    binding.editFullNameOrderUser.setError(getString(R.string.please_enter_your_full_name));
                     binding.editFullNameOrderUser.requestFocus();
                     return;
                 }
 
                 if (TextUtils.isEmpty(phone))
                 {
-                    binding.editPhoneOrderUser.setText(getString(R.string.please_enter_your_phone));
+                    binding.editPhoneOrderUser.setError(getString(R.string.please_enter_your_phone));
                     binding.editPhoneOrderUser.requestFocus();
                     return;
                 }
 
                 if (TextUtils.isEmpty(address))
                 {
-                    binding.editAddressOrderUser.setText(getString(R.string.please_enter_your_full_address));
+                    binding.editAddressOrderUser.setError(getString(R.string.please_enter_your_full_address));
                     binding.editAddressOrderUser.requestFocus();
                     return;
                 }

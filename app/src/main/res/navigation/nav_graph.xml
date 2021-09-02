@@ -230,7 +230,13 @@
         android:id="@+id/detailsProductFragment"
         android:name="com.e_commerce_mall.user.main.DetailsProductFragment"
         android:label="details_product_fragment"
-        tools:layout="@layout/details_product_fragment" />
+        tools:layout="@layout/details_product_fragment" >
+        <action
+            android:id="@+id/action_detailsProductFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/checkOrdersFragment"
         android:name="com.e_commerce_mall.admin.main.CheckOrdersFragment"

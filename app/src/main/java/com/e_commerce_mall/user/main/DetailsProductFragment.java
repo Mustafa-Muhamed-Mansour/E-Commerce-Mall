@@ -75,7 +75,7 @@ public class DetailsProductFragment extends Fragment
             @Override
             public void onChanged(Boolean aBoolean)
             {
-                Toast.makeText(getActivity(), "Lololololole", Toast.LENGTH_SHORT).show();
+                navController.navigate(R.id.action_detailsProductFragment_to_mainFragment);
             }
         });
     }
