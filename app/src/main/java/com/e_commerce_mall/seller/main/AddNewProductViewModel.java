@@ -34,6 +34,7 @@ public class AddNewProductViewModel extends ViewModel
 
         String productID = firebaseAuth.getCurrentUser().getUid();
         String randomKey = productRef.push().getKey();
+
         productImageRef.putFile(Uri.parse(url)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
         {
             @Override

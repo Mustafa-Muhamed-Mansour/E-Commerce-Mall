@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/signUpFragment">
+    app:startDestination="@id/orderUserFragment">
 
     <fragment
         android:id="@+id/signUpFragment"
@@ -40,9 +40,35 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.e_commerce_mall.ui.main.MainFragment"
+        android:name="com.e_commerce_mall.user.main.MainFragment"
         android:label="main_fragment"
-        tools:layout="@layout/main_fragment" />
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_self"
+            app:destination="@id/mainFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_cartUserFragment"
+            app:destination="@id/cartUserFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchUserFragment"
+            app:destination="@id/searchUserFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_settingUserFragment"
+            app:destination="@id/settingUserFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_detailsProductFragment"
+            app:destination="@id/detailsProductFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/signUpSellerFragment"
         android:name="com.e_commerce_mall.seller.signup.SignUpSellerFragment"
@@ -69,14 +95,14 @@
             app:destination="@id/signInAdminFragment"
             app:popUpTo="@id/nav_graph" />
         <action
-            android:id="@+id/action_adminCategoryFragment_to_checkOrdersFragment"
-            app:destination="@id/checkOrdersFragment"
-            app:popUpTo="@id/checkOrdersFragment"
-            app:popUpToInclusive="true" />
-        <action
             android:id="@+id/action_adminCategoryFragment_to_productsMaintenanceFragment"
             app:destination="@id/productsMaintenanceFragment"
             app:popUpTo="@id/productsMaintenanceFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_adminCategoryFragment_to_checkOrdersFragment"
+            app:destination="@id/checkOrdersFragment"
+            app:popUpTo="@id/checkOrdersFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -114,11 +140,6 @@
             app:popUpTo="@id/signUpAdminFragment"
             app:popUpToInclusive="true" />
     </fragment>
-    <fragment
-        android:id="@+id/checkOrdersFragment"
-        android:name="com.e_commerce_mall.admin.main.CheckOrdersFragment"
-        android:label="check_orders_fragment"
-        tools:layout="@layout/check_orders_fragment" />
     <fragment
         android:id="@+id/productsMaintenanceFragment"
         android:name="com.e_commerce_mall.admin.main.ProductsMaintenanceFragment"
@@ -185,4 +206,40 @@
             app:destination="@id/productsMaintenanceFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/cartUserFragment"
+        android:name="com.e_commerce_mall.user.cart.CartUserFragment"
+        android:label="cart_user_fragment"
+        tools:layout="@layout/cart_user_fragment" >
+        <action
+            android:id="@+id/action_cartUserFragment_to_orderUserFragment"
+            app:destination="@id/orderUserFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchUserFragment"
+        android:name="com.e_commerce_mall.user.search.SearchUserFragment"
+        android:label="search_user_fragment"
+        tools:layout="@layout/search_user_fragment" />
+    <fragment
+        android:id="@+id/settingUserFragment"
+        android:name="com.e_commerce_mall.user.setting.SettingUserFragment"
+        android:label="setting_user_fragment"
+        tools:layout="@layout/setting_user_fragment" />
+    <fragment
+        android:id="@+id/detailsProductFragment"
+        android:name="com.e_commerce_mall.user.main.DetailsProductFragment"
+        android:label="details_product_fragment"
+        tools:layout="@layout/details_product_fragment" />
+    <fragment
+        android:id="@+id/checkOrdersFragment"
+        android:name="com.e_commerce_mall.admin.main.CheckOrdersFragment"
+        android:label="check_orders_fragment"
+        tools:layout="@layout/check_orders_fragment" />
+    <fragment
+        android:id="@+id/orderUserFragment"
+        android:name="com.e_commerce_mall.user.order.OrderUserFragment"
+        android:label="OrderUserFragment"
+        tools:layout="@layout/order_user_fragment"
+        />
 </navigation>

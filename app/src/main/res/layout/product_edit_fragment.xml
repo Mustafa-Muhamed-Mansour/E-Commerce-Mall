@@ -12,13 +12,12 @@
         tools:context=".admin.main.ProductEditFragment"
         android:orientation="vertical">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/edit_product_img"
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:src="@drawable/ic_product"
             android:padding="20dp" />
 
 

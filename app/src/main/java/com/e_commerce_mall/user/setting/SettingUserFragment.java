@@ -1,4 +1,4 @@
-package com.e_commerce_mall.admin.main;
+package com.e_commerce_mall.user.setting;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -14,24 +14,24 @@ import android.view.ViewGroup;
 
 import com.e_commerce_mall.R;
 
-public class CheckOrdersFragment extends Fragment {
+public class SettingUserFragment extends Fragment {
 
-    private CheckOrdersViewModel mViewModel;
+    private SettingUserViewModel mViewModel;
 
-    public static CheckOrdersFragment newInstance() {
-        return new CheckOrdersFragment();
+    public static SettingUserFragment newInstance() {
+        return new SettingUserFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.check_orders_fragment, container, false);
+        return inflater.inflate(R.layout.setting_user_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(CheckOrdersViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(SettingUserViewModel.class);
         // TODO: Use the ViewModel
     }
 

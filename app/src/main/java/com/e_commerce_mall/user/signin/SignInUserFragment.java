@@ -18,12 +18,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.e_commerce_mall.R;
-import com.e_commerce_mall.databinding.SignInFragmentBinding;
+import com.e_commerce_mall.databinding.SignInUserFragmentBinding;
 
 public class SignInUserFragment extends Fragment
 {
 
-    private SignInFragmentBinding binding;
+    private SignInUserFragmentBinding binding;
     private NavController navController;
     private SignInUserViewModel signInUserViewModel;
 
@@ -31,7 +31,7 @@ public class SignInUserFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState)
     {
-        binding = SignInFragmentBinding.inflate(inflater, container, false);
+        binding = SignInUserFragmentBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         return view;
     }

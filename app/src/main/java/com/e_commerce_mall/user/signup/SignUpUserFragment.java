@@ -19,13 +19,13 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.e_commerce_mall.R;
-import com.e_commerce_mall.databinding.SignUpFragmentBinding;
+import com.e_commerce_mall.databinding.SignUpUserFragmentBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpUserFragment extends Fragment
 {
 
-    private SignUpFragmentBinding binding;
+    private SignUpUserFragmentBinding binding;
     private NavController navController;
     private SignUpUserViewModel signUpUserViewModel;
     private ProgressDialog progressDialog;
@@ -36,7 +36,7 @@ public class SignUpUserFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState)
     {
-        binding = SignUpFragmentBinding.inflate(inflater, container, false);
+        binding = SignUpUserFragmentBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         return view;
     }

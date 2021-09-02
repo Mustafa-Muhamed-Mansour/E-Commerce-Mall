@@ -17,6 +17,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class SellerProductAdapter extends RecyclerView.Adapter<SellerProductAdapter.SellerProductViewHolder>
 {
 
@@ -75,7 +77,7 @@ public class SellerProductAdapter extends RecyclerView.Adapter<SellerProductAdap
 
     public class SellerProductViewHolder extends RecyclerView.ViewHolder
     {
-        private ImageView sellerProductImage;
+        private CircleImageView sellerProductImage;
         private TextView textSellerProductName, textSellerProductDescription, textSellerProductPrice;
 
         public SellerProductViewHolder(@NonNull View itemView)

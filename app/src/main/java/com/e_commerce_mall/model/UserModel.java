@@ -7,6 +7,10 @@ public class UserModel
     private String fullName;
 
 
+    public UserModel()
+    {
+    }
+
     public UserModel(String userID, String email, String fullName)
     {
         this.userID = userID;

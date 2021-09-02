@@ -1,4 +1,4 @@
-package com.e_commerce_mall.ui.main;
+package com.e_commerce_mall.user.main;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -15,19 +15,23 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.e_commerce_mall.R;
+import com.e_commerce_mall.databinding.DetailsProductFragmentBinding;
 
-public class MainFragment extends Fragment
+public class DetailsProductFragment extends Fragment
 {
 
+    private DetailsProductFragmentBinding binding;
     private NavController navController;
-    private MainViewModel mainViewModel;
+    private DetailsProductViewModel detailsProductViewModel;
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState)
     {
-        return inflater.inflate(R.layout.main_fragment, container, false);
+        binding = DetailsProductFragmentBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
+        return view;
     }
 
 
@@ -37,15 +41,15 @@ public class MainFragment extends Fragment
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
-        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-
-    }
-
-    @Override
-    public void onDestroyView()
-    {
-        super.onDestroyView();
+        detailsProductViewModel = new ViewModelProvider(requireActivity()).get(DetailsProductViewModel.class);
 
 
+        binding.btnAddToCart.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+            }
+        });
     }
 }
