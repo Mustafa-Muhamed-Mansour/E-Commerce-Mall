@@ -77,7 +77,7 @@ public class SellerMainFragment extends Fragment
 
                         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
                         firebaseAuth.signOut();
-                        navController.navigate(R.id.action_sellerMainFragment_to_signInSellerFragment);
+                        navController.navigate(R.id.action_sellerMainFragment_to_signInFragment);
                         break;
                     default:
                         Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();

@@ -75,7 +75,6 @@ public class DetailsProductFragment extends Fragment
             @Override
             public void onChanged(Boolean aBoolean)
             {
-                navController.navigate(R.id.action_detailsProductFragment_to_mainFragment);
             }
         });
     }

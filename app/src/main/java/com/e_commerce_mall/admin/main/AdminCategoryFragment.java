@@ -65,7 +65,7 @@ public class AdminCategoryFragment extends Fragment
             public void onClick(View v)
             {
                 firebaseAuth.signOut();
-                navController.navigate(R.id.action_adminCategoryFragment_to_signInAdminFragment);
+                navController.navigate(R.id.action_adminCategoryFragment_to_signUpFragment);
             }
         });
     }

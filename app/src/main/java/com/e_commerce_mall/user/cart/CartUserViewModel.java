@@ -28,9 +28,8 @@ public class CartUserViewModel extends ViewModel
     public void retriveProduct()
     {
         retriveRef
-                .child("Users' accounts")
-                .child(firebaseAuth.getCurrentUser().getUid())
                 .child("Cart")
+                .child(firebaseAuth.getCurrentUser().getUid())
                 .addValueEventListener(new ValueEventListener()
                 {
                     @Override
