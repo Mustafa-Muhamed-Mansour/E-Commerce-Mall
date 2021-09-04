@@ -7,32 +7,41 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.e_commerce_mall.R;
+import com.e_commerce_mall.databinding.CheckOrdersFragmentBinding;
 
-public class CheckOrdersFragment extends Fragment {
+public class CheckOrdersFragment extends Fragment
+{
 
-    private CheckOrdersViewModel mViewModel;
+    private CheckOrdersFragmentBinding binding;
+    private NavController navController;
+    private CheckOrdersViewModel checkOrdersViewModel;
 
-    public static CheckOrdersFragment newInstance() {
-        return new CheckOrdersFragment();
-    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.check_orders_fragment, container, false);
+                             @Nullable Bundle savedInstanceState)
+    {
+        binding = CheckOrdersFragmentBinding.inflate(inflater, container, false);
+        return  binding.getRoot();
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(CheckOrdersViewModel.class);
-        // TODO: Use the ViewModel
-    }
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
+    {
+        super.onViewCreated(view, savedInstanceState);
 
+        navController = Navigation.findNavController(view);
+        checkOrdersViewModel = new ViewModelProvider(requireActivity()).get(CheckOrdersViewModel.class);
+
+
+
+    }
 }

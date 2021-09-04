@@ -29,8 +29,7 @@ public class OrderUserFragment extends Fragment
     private OrderUserFragmentBinding binding;
     private NavController navController;
     private OrderUserViewModel orderUserViewModel;
-    private String orderUserImage;
-    private Uri resultUri;
+
 
 
     @Override
@@ -61,7 +60,7 @@ public class OrderUserFragment extends Fragment
                 String name = binding.editFullNameOrderUser.getText().toString();
                 String phone = binding.editPhoneOrderUser.getText().toString();
                 String address = binding.editAddressOrderUser.getText().toString();
-                String paied = binding.txtPaiedOrderUser.toString();
+                String paied = String.valueOf(binding.txtPaiedOrderUser.getText());
 
                 if (TextUtils.isEmpty(name))
                 {
@@ -91,7 +90,7 @@ public class OrderUserFragment extends Fragment
 
                 else
                 {
-                    orderUserViewModel.addOrder(paied, orderUserImage, name, phone, address);
+                    orderUserViewModel.addOrder(paied, name, phone, address);
                 }
             }
         });
@@ -110,6 +109,7 @@ public class OrderUserFragment extends Fragment
             @Override
             public void onChanged(Boolean aBoolean)
             {
+                navController.navigate(R.id.action_orderUserFragment_to_mainFragment);
             }
         });
     }

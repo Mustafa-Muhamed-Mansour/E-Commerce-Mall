@@ -247,5 +247,11 @@
         android:name="com.e_commerce_mall.user.order.OrderUserFragment"
         android:label="OrderUserFragment"
         tools:layout="@layout/order_user_fragment"
-        />
+        >
+        <action
+            android:id="@+id/action_orderUserFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

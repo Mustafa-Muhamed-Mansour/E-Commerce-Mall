@@ -6,17 +6,20 @@ public class OrderModel
     private String randomKey;
     private String orderID;
     private String orderPaied;
-    private String orderUserProfileImage;
     private String orderUserName;
     private String orderUserPhone;
     private String orderUserAddress;
 
-    public OrderModel(String randomKey, String orderID, String orderPaied, String orderUserProfileImage, String orderUserName, String orderUserPhone, String orderUserAddress)
+
+    public OrderModel()
+    {
+    }
+
+    public OrderModel(String randomKey, String orderID, String orderPaied, String orderUserName, String orderUserPhone, String orderUserAddress)
     {
         this.randomKey = randomKey;
         this.orderID = orderID;
         this.orderPaied = orderPaied;
-        this.orderUserProfileImage = orderUserProfileImage;
         this.orderUserName = orderUserName;
         this.orderUserPhone = orderUserPhone;
         this.orderUserAddress = orderUserAddress;
@@ -32,10 +35,6 @@ public class OrderModel
 
     public String getOrderPaied() {
         return orderPaied;
-    }
-
-    public String getOrderUserProfileImage() {
-        return orderUserProfileImage;
     }
 
     public String getOrderUserName() {
